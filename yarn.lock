@@ -1512,16 +1512,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.9.1":
-  version: 7.14.0
-  resolution: "@babel/runtime@npm:7.14.0"
-  dependencies:
-    regenerator-runtime: ^0.13.4
-  checksum: ab6653f2f8ecdaebf36674894cef458a9d4f881dc007fdcd50a8261f5c6d9731e03fda2c17e32ecf0e6c779d69eb6cf49d68a48c780aaf07d5b572e8b7ef0508
-  languageName: node
-  linkType: hard
-
-"@babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.1":
   version: 7.12.5
   resolution: "@babel/runtime@npm:7.12.5"
   dependencies:
@@ -1576,14 +1567,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icon-helpers@npm:^10.10.0, @carbon/icon-helpers@npm:^10.18.0":
+"@carbon/icon-helpers@npm:^10.10.0":
+  version: 10.10.0
+  resolution: "@carbon/icon-helpers@npm:10.10.0"
+  checksum: fb418cb7d47a64142d670585011995a5f0db8f9b02dc79e522b963254bb176a63bd7188f60ecf18bc1760a6915386d28c15eda9b527e937cf0e3dde7234e24b9
+  languageName: node
+  linkType: hard
+
+"@carbon/icon-helpers@npm:^10.18.0":
   version: 10.18.0
   resolution: "@carbon/icon-helpers@npm:10.18.0"
   checksum: 151d30cb4c423c1f750bcf9fe75ee0070888b282f4191d61e00d34b7741f3eab3a54d0167a492e24d8e8c465f5fe36279175d2a75781368c2c291d8f5b877f69
   languageName: node
   linkType: hard
 
-"@carbon/icons-react@npm:10.22.0":
+"@carbon/icons-react@npm:^10.22.0":
   version: 10.22.0
   resolution: "@carbon/icons-react@npm:10.22.0"
   dependencies:
@@ -1595,7 +1593,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons-react@npm:^10.22.0":
+"@carbon/icons-react@npm:^10.33.0":
   version: 10.33.0
   resolution: "@carbon/icons-react@npm:10.33.0"
   dependencies:
@@ -4532,7 +4530,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "carbon-tutorial@workspace:."
   dependencies:
-    "@carbon/icons-react": 10.22.0
+    "@carbon/icons-react": ^10.33.0
     "@commitlint/cli": 7.5.2
     "@commitlint/config-conventional": 7.5.0
     carbon-components: 10.25.0
@@ -5061,9 +5059,9 @@ __metadata:
   linkType: hard
 
 "compute-scroll-into-view@npm:^1.0.13":
-  version: 1.0.17
-  resolution: "compute-scroll-into-view@npm:1.0.17"
-  checksum: 15e88fe143ff290807fe47f81b17ea809f31e82ba9ec72e4e59470c1e204bc62432cc27094a0788ba8d5c242f1b781d973b77d42c55689deda3dc7df934b040e
+  version: 1.0.16
+  resolution: "compute-scroll-into-view@npm:1.0.16"
+  checksum: 5ba65c11c79a0accfced384842f40fc4e6d91d1308c0e49a5f9fa6a17160aef1cf4ea1cc854ecedd813ef8742b3b4d4e7dd8a14880aa39efc3359fb674bac8ba
   languageName: node
   linkType: hard
 
@@ -8543,11 +8541,11 @@ fsevents@~2.1.2:
   linkType: hard
 
 "iconv-lite@npm:^0.6.2":
-  version: 0.6.3
-  resolution: "iconv-lite@npm:0.6.3"
+  version: 0.6.2
+  resolution: "iconv-lite@npm:0.6.2"
   dependencies:
     safer-buffer: ">= 2.1.2 < 3.0.0"
-  checksum: 9b4f24db662b717340ae20ec9ebbaf0648b378a2d0fc64aef83c6bccdd9918b622216c020e177ddf2d02eeff8456a732e85b6d989eb2cd3a40519f3e179b273c
+  checksum: 0785670120f57b5912c6a4391d6a69914906746d259b59de884dc6d324a52a0abde38d5804f67370192fec6878d01e7306de525568abcea70eb41c2bceb9f547
   languageName: node
   linkType: hard
 
@@ -16173,9 +16171,9 @@ resolve@1.18.1:
   linkType: hard
 
 "ua-parser-js@npm:^0.7.18":
-  version: 0.7.28
-  resolution: "ua-parser-js@npm:0.7.28"
-  checksum: bf65a24eb48d8ec31f6396494bff16b92228e88d7ea15d0bdaa71505313979d2fd176d832418d849a8fa6e119e8dea482f52a2acffe51a3f1810087d295a9adf
+  version: 0.7.22
+  resolution: "ua-parser-js@npm:0.7.22"
+  checksum: c14272a0261bacd6d9daecc8bd2d48d6e5c68d27d5978e10fb27cbbeb07ee0d427786436e4db8ca7ce92ba4bf0399dda647c1f98fbb77ee2fec8f3b7b8244999
   languageName: node
   linkType: hard
 
@@ -16805,14 +16803,7 @@ resolve@1.18.1:
   languageName: node
   linkType: hard
 
-"whatwg-fetch@npm:>=0.10.0":
-  version: 3.6.2
-  resolution: "whatwg-fetch@npm:3.6.2"
-  checksum: eaa370015f81fbf7fc69d5410a13c2200d3342fa783397e9a7e64215498276459993c05e826ed736d28a8abe4e7cc3f97e9b2ffadbc58129a55f443abdfea494
-  languageName: node
-  linkType: hard
-
-"whatwg-fetch@npm:^3.4.1":
+"whatwg-fetch@npm:>=0.10.0, whatwg-fetch@npm:^3.4.1":
   version: 3.5.0
   resolution: "whatwg-fetch@npm:3.5.0"
   checksum: dd41999927e87c4cd0af572fe9976dcb1529c00b89c2074b0d1c02baa03670ff7b7cc45ca5b475c02a4a5b274cc1def56a9be7870df7af5c0f9b7d4fb4588ae6

@@ -9,15 +9,15 @@ import RepoPage from './content/RepoPage';
 class App extends Component {
   render() {
     return (
-      <>
+      <div>
         <TutorialHeader />
         <Content>
           <Switch>
             <Route exact path="/" component={LandingPage} />
-            <Route path="/repos" component={RepoPage} />
+            <Route path="/reports" component={RepoPage} />
           </Switch>
         </Content>
-      </>
+      </div>
     );
   }
 }
