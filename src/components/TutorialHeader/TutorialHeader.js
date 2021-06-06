@@ -45,21 +45,37 @@ const TutorialHeader = () => (
         </HeaderName>
         <SideNav aria-label="Side navigation" expanded={isSideNavExpanded}>
           <SideNavItems>
-            <SideNavLink renderIcon={Dashboard32} Dashboard32>
+            <SideNavLink
+              element={Link}
+              to="/"
+              renderIcon={Dashboard32}
+              Dashboard32>
               Dashboards
             </SideNavLink>
 
             <SideNavMenu renderIcon={Data_132} title="Work Queues">
-              <SideNavMenuItem Dashboard32>Link</SideNavMenuItem>
-              <SideNavMenuItem Dashboard32>Link</SideNavMenuItem>
-              <SideNavMenuItem Dashboard32>Link</SideNavMenuItem>
+              <SideNavMenuItem element={Link} to="/" Dashboard32>
+                Queue A
+              </SideNavMenuItem>
+              <SideNavMenuItem element={Link} to="/" Dashboard32>
+                Queue B
+              </SideNavMenuItem>
+              <SideNavMenuItem element={Link} to="/" Dashboard32>
+                Queue C
+              </SideNavMenuItem>
             </SideNavMenu>
             <SideNavMenu renderIcon={ChartVennDiagram32} title="Items">
-              <SideNavMenuItem ChartVennDiagram32>Link</SideNavMenuItem>
-              <SideNavMenuItem ChartVennDiagram32>Link</SideNavMenuItem>
-              <SideNavMenuItem ChartVennDiagram32>Link</SideNavMenuItem>
+              <SideNavMenuItem element={Link} to="/" ChartVennDiagram32>
+                Item 1
+              </SideNavMenuItem>
+              <SideNavMenuItem element={Link} to="/" ChartVennDiagram32>
+                Item 2
+              </SideNavMenuItem>
+              <SideNavMenuItem element={Link} to="/" ChartVennDiagram32>
+                Item 3
+              </SideNavMenuItem>
             </SideNavMenu>
-            <SideNavLink renderIcon={Concept32} Concept32>
+            <SideNavLink element={Link} to="/" renderIcon={Concept32} Concept32>
               Workflow
             </SideNavLink>
             <SideNavLink
@@ -70,7 +86,11 @@ const TutorialHeader = () => (
               to="/reports">
               Reports
             </SideNavLink>
-            <SideNavLink renderIcon={Lightning32} Dashboard32>
+            <SideNavLink
+              element={Link}
+              to="/"
+              renderIcon={Lightning32}
+              Dashboard32>
               Alert Console
             </SideNavLink>
           </SideNavItems>

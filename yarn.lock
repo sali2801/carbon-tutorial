@@ -1567,6 +1567,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@carbon/grid@npm:10.17.0":
+  version: 10.17.0
+  resolution: "@carbon/grid@npm:10.17.0"
+  dependencies:
+    "@carbon/import-once": ^10.4.0
+    "@carbon/layout": ^10.15.0
+  checksum: b5502b7ccfdc1e99d1c5ad782e9662a052f097d16dd80b1e70b59a93f958247e437a6e69f8e786d5013adc9949934490690b07a9fb2d8dd7e87089a445571276
+  languageName: node
+  linkType: hard
+
 "@carbon/icon-helpers@npm:^10.10.0":
   version: 10.10.0
   resolution: "@carbon/icon-helpers@npm:10.10.0"
@@ -1603,6 +1613,20 @@ __metadata:
   peerDependencies:
     react: ">=16"
   checksum: 4283037e97924923c3c774798a77aed88f3e69bc85ed402f00cec99cd52969adb312eebdeef07a9be7f2f4a5932ebe993c9bfc56e4c45181432e10d9884b9331
+  languageName: node
+  linkType: hard
+
+"@carbon/import-once@npm:^10.4.0":
+  version: 10.6.0
+  resolution: "@carbon/import-once@npm:10.6.0"
+  checksum: ebfd2a5b7d408be48e73733d260624f69be15cbfe59d52ab533326891c14ab4e952296f190089308ba389bc2556c4f7983ae9961c3b282ecdc9fbe77161c92f9
+  languageName: node
+  linkType: hard
+
+"@carbon/layout@npm:^10.15.0":
+  version: 10.25.0
+  resolution: "@carbon/layout@npm:10.25.0"
+  checksum: 442bdbf4a0ad71a374fa3cd5f10f5967aee0a3e2a1bbe433c12cc4dae2f0aaf2e2f341dcdc62f08f8ea310ad0d3392c333c895a45e4ba3ae2cbe9a5e1a40961e
   languageName: node
   linkType: hard
 
@@ -4530,6 +4554,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "carbon-tutorial@workspace:."
   dependencies:
+    "@carbon/grid": 10.17.0
     "@carbon/icons-react": ^10.33.0
     "@commitlint/cli": 7.5.2
     "@commitlint/config-conventional": 7.5.0
@@ -4538,9 +4563,10 @@ __metadata:
     carbon-icons: 7.0.7
     enzyme: 3.11.0
     enzyme-adapter-react-16: 1.15.5
+    eslint-config-prettier: 8.3.0
     husky: 1.3.1
     lint-staged: 8.1.5
-    prettier: 1.17.0
+    prettier: 2.3.1
     react: 16.10.0
     react-dom: 16.10.0
     react-router-dom: 5.0.0
@@ -6684,6 +6710,17 @@ __metadata:
     escodegen: bin/escodegen.js
     esgenerate: bin/esgenerate.js
   checksum: 548c5a83a81a51122f1006309a392e1412bb00657f15aca60f01f9d4553851bdaf0519d898fd3ee2bb46f116e03ee48757f4d9a28a7b58bc8c096fd4b33f6cbc
+  languageName: node
+  linkType: hard
+
+"eslint-config-prettier@npm:8.3.0":
+  version: 8.3.0
+  resolution: "eslint-config-prettier@npm:8.3.0"
+  peerDependencies:
+    eslint: ">=7.0.0"
+  bin:
+    eslint-config-prettier: bin/cli.js
+  checksum: 94ccbb50fb67e5e47e8ba6cfa257b5cbf53619990ab13f46b99518cfe9b900394b93bdf6ffedbde1a8e2997d301b0fbd73a6b4202146bc53475dfb30a8c812f2
   languageName: node
   linkType: hard
 
@@ -13153,12 +13190,12 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"prettier@npm:1.17.0":
-  version: 1.17.0
-  resolution: "prettier@npm:1.17.0"
+"prettier@npm:2.3.1":
+  version: 2.3.1
+  resolution: "prettier@npm:2.3.1"
   bin:
-    prettier: ./bin-prettier.js
-  checksum: e8a1a8c8bc4bed610f715ce09826e3feb24a4c83a8dfb51e9b72e6a23b5f384d48c395f4920174fdf4ce4e9a9a4f9d7b09eb6079334e9b3af0dd6b3ee946fd0a
+    prettier: bin-prettier.js
+  checksum: 9b4a695b87ce5f510fc20feec01cce7371f0fa0b92ffe79d543f6be52e2004c532861629de4d7ab1c577e1f649dce3cfccd62cb2ca6526b1da8d9c63eb84bf36
   languageName: node
   linkType: hard
 
