@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react'
 import {
   Information20,
   Star20,
@@ -20,8 +20,50 @@ import {
 } from 'carbon-components-react';
 import { SimpleBarChart } from '@carbon/charts-react';
 import { headerData, rowData } from './sampleData';
+import { useDispatch, useSelector } from 'react-redux';
+import ApiService from '../../api/ApiService';
+import {selectMockData} from  '../../redux/selector'
 
 const RepoPage = () => {
+
+    
+  const dispatch = useDispatch();
+
+  const mockData = useSelector(selectMockData);
+
+
+   useEffect(() => {
+    ApiService.loadData(dispatch);
+    }, [dispatch])
+
+
+
+  
+  const errorContainer = () => {
+    return <div>ERROR IN API</div>;
+  }
+
+
+  const renderData = (mockData: []) => {
+    return  mockData?.length || 0 ? errorContainer():
+    <div className="container">
+        <div className="header">
+        <div>NAME</div>
+        <div>EMAIL</div>
+        <div>PHONE</div>
+        <div>WEBSITE</div>    
+      </div>
+    {mockData.map((post: any, index:any) =>
+        <div className="row" key={index}>
+        <div> { post.userId } </div>
+        <div>{ post.id }</div>
+        <div>{ post.title } </div>
+        <div>{ post.body } </div>    
+        </div>
+    )}
+    </div>
+  }
+
   return (
     <div className="bx--grid">
       {/* ROW 1 */}
@@ -46,39 +88,11 @@ const RepoPage = () => {
       </div>
       {/* ROW 2 */}
       <div className="bx--row landing-page__r2">
-        <SimpleBarChart
-          data={this.state.data}
-          options={this.state.options}></SimpleBarChart>
+      {renderData(mockData)}
       </div>
       {/* ROW 3 */}
       <div className="bx--row landing-page__r3">
-        <DataTable rows={rowData} headers={headerData}>
-          {({ rows, headers, getHeaderProps, getTableProps }) => (
-            <TableContainer title="DataTable">
-              <Table {...getTableProps()}>
-                <TableHead>
-                  <TableRow>
-                    {headers.map((header) => (
-                      <TableHeader {...getHeaderProps({ header })}>
-                        {header.header}
-                      </TableHeader>
-                    ))}
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {rows.map((row) => (
-                    <TableRow key={row.id}>
-                      {row.cells.map((cell) => (
-                        <TableCell key={cell.id}>{cell.value}</TableCell>
-                      ))}
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          )}
-        </DataTable>
-      </div>
+ </div>
     </div>
   );
 };

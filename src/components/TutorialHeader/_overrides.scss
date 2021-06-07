@@ -1,0 +1,14 @@
+.bx--header__menu-toggle__hidden {
+  // this is for the menu icon
+  display: flex;
+}
+
+a.bx--header__name {
+  // this is to align hear name (IBM maximo...) with the menu text
+  padding-left: 5px;
+}
+
+.bx--side-nav__navigation {
+  // this is to color menu in balck color
+  background-color: $gray-100;
+}
