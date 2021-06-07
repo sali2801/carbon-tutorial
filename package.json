@@ -1,16 +1,12 @@
 {
-  "name": "carbon-tutorial",
+  "name": "IBM Maximo Application Insights",
   "version": "0.0.0",
-  "private": true,
-  "repository": "git@github.com:carbon-design-system/carbon-tutorial.git",
-  "bugs": "https://github.com/carbon-design-system/carbon-tutorial/issues",
-  "license": "Apache-2.0",
   "scripts": {
     "build": "react-scripts build",
     "ci-check": "yarn format:diff",
     "clean": "yarn cache clean && yarn install",
     "eject": "react-scripts eject",
-    "format": "prettier --write \"**/*.{js,md,scss}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,md,scss}\"",
     "format:diff": "prettier --list-different \"**/*.{js,md,scss}\"",
     "format:staged": "prettier --write",
     "start": "react-scripts start",

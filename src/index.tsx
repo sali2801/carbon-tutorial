@@ -11,15 +11,15 @@ import * as serviceWorker from './serviceWorker';
 import { HashRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import {AppplicationReducer} from './redux/reducer';
+import { ApplicationReducer } from './redux/reducer';
 
-const store = createStore(AppplicationReducer)
+const store = createStore(ApplicationReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-  <Router>
-    <App />
-  </Router>,
+    <Router>
+      <App />
+    </Router>,
   </Provider>,
 
   document.getElementById('root')

@@ -59,47 +59,27 @@ const TutorialHeader = () => (
         </HeaderGlobalBar>
         <SideNav aria-label="Side navigation" expanded={isSideNavExpanded}>
           <SideNavItems>
-            <SideNavLink
-              href="/"
-              renderIcon={Dashboard32}
-              >
+            <SideNavLink href="/" renderIcon={Dashboard32}>
               Dashboards
             </SideNavLink>
 
             <SideNavMenu renderIcon={Data_132} title="Work Queues">
-              <SideNavMenuItem href="/">
-                Queue A
-              </SideNavMenuItem>
-              <SideNavMenuItem href="/">
-                Queue B
-              </SideNavMenuItem>
-              <SideNavMenuItem href="/">
-                Queue C
-              </SideNavMenuItem>
+              <SideNavMenuItem href="/">Queue A</SideNavMenuItem>
+              <SideNavMenuItem href="/">Queue B</SideNavMenuItem>
+              <SideNavMenuItem href="/">Queue C</SideNavMenuItem>
             </SideNavMenu>
             <SideNavMenu renderIcon={ChartVennDiagram32} title="Items">
-              <SideNavMenuItem href="/">
-                Item 1
-              </SideNavMenuItem>
-              <SideNavMenuItem href="/">
-                Item 2
-              </SideNavMenuItem>
-              <SideNavMenuItem href="/">
-                Item 3
-              </SideNavMenuItem>
+              <SideNavMenuItem href="/">Item 1</SideNavMenuItem>
+              <SideNavMenuItem href="/">Item 2</SideNavMenuItem>
+              <SideNavMenuItem href="/">Item 3</SideNavMenuItem>
             </SideNavMenu>
             <SideNavLink href="/" renderIcon={Concept32}>
               Workflow
             </SideNavLink>
-            <SideNavLink
-              renderIcon={Analytics32}
-              href="/">
+            <SideNavLink renderIcon={Analytics32} href="/">
               Reports
             </SideNavLink>
-            <SideNavLink
-              href="/"
-              renderIcon={Lightning32}
-              >
+            <SideNavLink href="/" renderIcon={Lightning32}>
               Alert Console
             </SideNavLink>
           </SideNavItems>

@@ -1,9 +1,8 @@
 import { useCallback, useState } from 'react';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setMockData } from '../redux/actions';
 
 export const useGetMockData = () => {
-
   const dispatch = useDispatch();
   const [isFetching, setIsFetching] = useState(true);
   const [error, setError] = useState<any>();
@@ -19,15 +18,13 @@ export const useGetMockData = () => {
   };
 
   const fetchAndSetMockData = useCallback(() => {
-    return fetchMockData().then((res: any) => res.json()).then((response) => {
-      if (response) {
-        dispatch(
-          setMockData(
-            response
-          )
-        );
-      }
-    });
+    return fetchMockData()
+      .then((res: any) => res.json())
+      .then((response) => {
+        if (response) {
+          dispatch(setMockData(response));
+        }
+      });
   }, []);
 
   return {
