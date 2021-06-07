@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react';
 import {
   Information20,
   Star20,
   Edit20,
   Share20,
   OverflowMenuVertical20,
+  Settings20,
+  Search20,
 } from '@carbon/icons-react';
 import {
-  Breadcrumb, 
+  Breadcrumb,
   BreadcrumbItem,
   DataTable,
   TableContainer,
@@ -17,58 +19,93 @@ import {
   TableHeader,
   TableBody,
   TableCell,
+  TableToolbar,
+  TableToolbarSearch,
+  TableBatchActions,
+  TableToolbarMenu,
+  TableToolbarContent,
+  TableToolbarAction,
 } from 'carbon-components-react';
 import { SimpleBarChart } from '@carbon/charts-react';
-import { headerData, rowData } from './sampleData';
+import { BarChartOptions, ScaleTypes } from '@carbon/charts/interfaces';
 import { useDispatch, useSelector } from 'react-redux';
 import ApiService from '../../api/ApiService';
-import {selectMockData} from  '../../redux/selector'
+import { selectMockData } from '../../redux/selector';
+import { ApplicationActionType } from '../../redux/types';
 
 const RepoPage = () => {
-
-    
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // only way to change state in redux
 
   const mockData = useSelector(selectMockData);
 
+  /* const [options, setOptions] = useState<BarChartOptions>({
+    axes:  {
+      left: {
+        mapsTo: "group",
+        scaleType: ScaleTypes.LABELS
+      },
+      bottom: {
+        mapsTo: "value"
+      }
+    },
+    height: "400px",
+  });
+ */
 
-   useEffect(() => {
-    ApiService.loadData(dispatch);
-    }, [dispatch])
+  // We would have a headers array like the following
+  const headers = [
+    {
+      key: 'month',
+      header: 'Month',
+    },
+    {
+      key: 'quantity',
+      header: 'Quantity',
+    },
+    {
+      // `key` is the name of the field on the row object itself for the header
+      key: 'notes',
+      // `header` will be the name you want rendered in the Table Header
+      header: 'Notes',
+    },
+  ];
 
 
+  const options = {
+    axes: {
+      left: {
+        mapsTo: 'quantity',
+        title: 'Quantity'
+      },
+      bottom: {
+        mapsTo: 'group',
+        scaleType: ScaleTypes.LABELS,
+        title: 'Months'
+      },
+    },
+    legend:{
+      enabled:false
+    },
+    height: '400px'
+  };
 
-  
-  const errorContainer = () => {
-    return <div>ERROR IN API</div>;
-  }
+  useEffect(() => {
+    fetch('https://my-json-server.typicode.com/sali2801/mockDataServer/sales')
+      .then((response) => response.json())
+      .then((posts) => {
+        dispatch({ type: ApplicationActionType.SetMockData, payload: posts });
+      });
+    //ApiService.loadData(dispatch);
+  }, []); // the extra [] make this run ONCE after initial rendering
 
-
-  const renderData = (mockData: []) => {
-    return  mockData?.length || 0 ? errorContainer():
-    <div className="container">
-        <div className="header">
-        <div>NAME</div>
-        <div>EMAIL</div>
-        <div>PHONE</div>
-        <div>WEBSITE</div>    
-      </div>
-    {mockData.map((post: any, index:any) =>
-        <div className="row" key={index}>
-        <div> { post.userId } </div>
-        <div>{ post.id }</div>
-        <div>{ post.title } </div>
-        <div>{ post.body } </div>    
-        </div>
-    )}
-    </div>
-  }
+  const handleClick = (e: any) => {};
 
   return (
     <div className="bx--grid">
       {/* ROW 1 */}
       <div className="bx--row">
-        <div className="bx--col-lg-16">
+        <section className="bx--offset-md-2 landing-page__header">
+          <div className="bx--col">
           <Breadcrumb aria-label="Page navigation">
             <BreadcrumbItem href="/">All Reports</BreadcrumbItem>
           </Breadcrumb>
@@ -78,21 +115,75 @@ const RepoPage = () => {
               <Information20 />
             </span>
           </h4>
-        </div>
-        <div className="bx--col-lg-16">
+          <div>
           <Star20 />
           <Edit20 />
           <Share20 />
           <OverflowMenuVertical20 />
         </div>
+        </div>
+         
+        </section>
       </div>
       {/* ROW 2 */}
-      <div className="bx--row landing-page__r2">
-      {renderData(mockData)}
+      <div className="bx--row">
+      <section className="bx--offset-md-2 landing-page__r2">
+        <SimpleBarChart data={mockData} options={options}></SimpleBarChart>
+      </section>
       </div>
+
       {/* ROW 3 */}
-      <div className="bx--row landing-page__r3">
- </div>
+
+      <div className="bx--row">
+      <section className="bx--offset-md-2 landing-page__r3">
+        <DataTable
+          rows={mockData}
+          headers={headers}
+          isSortable
+          render={({ rows, headers, getHeaderProps }) => (
+            <TableContainer
+              title="2021 sales"
+              description="sales/month">
+              <TableToolbar>
+                <TableToolbarContent>
+                  <TableToolbarAction onClick={handleClick}>
+                    <Search20 />
+                  </TableToolbarAction>
+                  <TableToolbarAction onClick={handleClick}>
+                    <Edit20 />
+                  </TableToolbarAction>
+                  <TableToolbarAction onClick={handleClick}>
+                    <Settings20 />
+                  </TableToolbarAction>
+                </TableToolbarContent>
+              </TableToolbar>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    {headers.map((header) => (
+                      <TableHeader {...getHeaderProps({ header })}>
+                        {header.header}
+                      </TableHeader>
+                    ))}
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {rows.map((row) => (
+                    <TableRow key={row.id}>
+                      {row.cells.map((cell) => (
+                        <TableCell key={cell.id}>{cell.value}</TableCell>
+                      ))}
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          )}
+        />
+        </section>
+
+      </div>
+
     </div>
   );
 };
