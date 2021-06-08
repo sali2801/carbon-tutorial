@@ -115,10 +115,11 @@ const RepoPage = () => {
   const handleClick = (e: any) => {};
 
   return (
+    <div>
     <div className="bx--grid">
-      {/* ROW 1 */}
+   
       <div className="bx--row">
-        <section className="bx--offset-md-2 landing-page__header">
+        <section className="landing-page__header">
           <div>
             <Breadcrumb aria-label="Page navigation">
               <BreadcrumbItem href="/">All Reports</BreadcrumbItem>
@@ -136,18 +137,20 @@ const RepoPage = () => {
           </h4>
         </section>
       </div>
-      {/* ROW 2 */}
+      </div>
+       <div className="bx--grid">
+
       <div className="bx--row">
-        <section className="bx--offset-md-2 landing-page__r2">
+        <section className="landing-page__r2">
           <SimpleBarChart data={mockData} options={options}></SimpleBarChart>
         </section>
       </div>
-
-      {/* ROW 3 */}
-
+  </div>
+    
+      <div className="bx--grid">
       <div className="bx--row">
-        <section className="bx--offset-md-2 landing-page__r3">
-          <DataTable
+        <section className="landing-page__r3">
+          <DataTable 
             rows={mockData}
             headers={headers}
             isSortable
@@ -159,8 +162,8 @@ const RepoPage = () => {
               getRowProps,
               getTableProps,
             }) => (
-              <TableContainer title="2021 sales" description="#sales/month">
-                <TableToolbar className="bx--col">
+              <TableContainer  title="2021 sales" description="#sales/month">
+                <TableToolbar>
                   <TableToolbarContent>
                     <TableToolbarAction onClick={handleClick}>
                       <Search16 />
@@ -185,7 +188,7 @@ const RepoPage = () => {
                   </TableHead>
                   <TableBody>
                     {rows.map((row) => (
-                      <TableRow key={row.id} {...getRowProps({ row })}>
+                      <TableRow {...getRowProps({ row })}>
                         {row.cells.map((cell) => (
                           <TableCell key={cell.id}>{cell.value}</TableCell>
                         ))}
@@ -198,6 +201,7 @@ const RepoPage = () => {
           />
         </section>
       </div>
+    </div>
     </div>
   );
 };

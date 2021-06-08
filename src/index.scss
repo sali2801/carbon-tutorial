@@ -10,11 +10,23 @@ $feature-flags: (
     padding-left: 1rem;
     padding-right: 1rem;
   }
+
+  .bx--content .bx--grid {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
 }
 
 @media (min-width: 66rem) {
   .bx--grid {
     padding-left: calc(25% + 2rem);
+  }
+}
+
+@media (min-width: 99rem) {
+  .bx--content .bx--grid {
+    padding-left: 300px;
+    padding-right: 2rem;
   }
 }
 
