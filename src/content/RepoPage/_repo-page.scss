@@ -1,18 +1,22 @@
-
 @import './overrides.scss';
 
-.homepage--header {
-    height: 0;
-    overflow: hidden;
-    padding-top: 100%;
-    position: relative;
-}
-
-.landing-page__r3 {
-    width: 100%;
-
+.landing-page__header {
+  margin-bottom: 5%;
+  width: 100%;
+  padding-top: 1rem;
 }
 
 .landing-page__r2 {
-    width: 100%;
+  width: 95%;
+  margin-bottom: 2.5rem;
+}
+
+.landing-page__r3 {
+  width: 100%;
+}
+
+.float__right {
+  float: right;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }

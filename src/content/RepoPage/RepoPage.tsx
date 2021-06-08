@@ -5,8 +5,10 @@ import {
   Edit20,
   Share20,
   OverflowMenuVertical20,
-  Settings20,
   Search20,
+  Search16,
+  Edit16,
+  Settings16,
 } from '@carbon/icons-react';
 import {
   Breadcrumb,
@@ -38,21 +40,6 @@ const RepoPage = () => {
 
   const mockData = useSelector(selectMockData);
 
-  /* const [options, setOptions] = useState<BarChartOptions>({
-    axes:  {
-      left: {
-        mapsTo: "group",
-        scaleType: ScaleTypes.LABELS
-      },
-      bottom: {
-        mapsTo: "value"
-      }
-    },
-    height: "400px",
-  });
- */
-
-  // We would have a headers array like the following
   const headers = [
     {
       key: 'month',
@@ -70,30 +57,57 @@ const RepoPage = () => {
     },
   ];
 
-
   const options = {
+    data: {
+      groupMapsTo: 'id',
+    },
     axes: {
       left: {
         mapsTo: 'quantity',
-        title: 'Quantity'
+        title: 'Quantity',
+        ticks: {
+          values: [0, 100, 200, 300, 400, 500],
+        },
       },
       bottom: {
-        mapsTo: 'group',
+        mapsTo: 'id',
         scaleType: ScaleTypes.LABELS,
-        title: 'Months'
+        title: 'Months',
       },
     },
-    legend:{
-      enabled:false
+    tooltip: {
+      enabled: false,
     },
-    height: '400px'
+    bars: {
+      width: 50,
+    },
+    color: {
+      scale: {
+        Jan: '#6929c4',
+        Feb: '#6929c4',
+        Mar: '#6929c4',
+        Apr: '#6929c4',
+        May: '#6929c4',
+        Jun: '#6929c4',
+        Jul: '#6929c4',
+        Aug: '#6929c4',
+        Sep: '#6929c4',
+        Oct: '#6929c4',
+        Nov: '#6929c4',
+        Dec: '#6929c4',
+      },
+    },
+    legend: {
+      enabled: false,
+    },
+    height: '200px',
   };
 
   useEffect(() => {
     fetch('https://my-json-server.typicode.com/sali2801/mockDataServer/sales')
       .then((response) => response.json())
-      .then((posts) => {
-        dispatch({ type: ApplicationActionType.SetMockData, payload: posts });
+      .then((sales) => {
+        dispatch({ type: ApplicationActionType.SetMockData, payload: sales });
       });
     //ApiService.loadData(dispatch);
   }, []); // the extra [] make this run ONCE after initial rendering
@@ -101,89 +115,93 @@ const RepoPage = () => {
   const handleClick = (e: any) => {};
 
   return (
+    <div>
     <div className="bx--grid">
-      {/* ROW 1 */}
+   
       <div className="bx--row">
-        <section className="bx--offset-md-2 landing-page__header">
-          <div className="bx--col">
-          <Breadcrumb aria-label="Page navigation">
-            <BreadcrumbItem href="/">All Reports</BreadcrumbItem>
-          </Breadcrumb>
+        <section className="landing-page__header">
+          <div>
+            <Breadcrumb aria-label="Page navigation">
+              <BreadcrumbItem href="/">All Reports</BreadcrumbItem>
+            </Breadcrumb>
+          </div>
           <h4>
             Report Name
-            <span>
+            <span className="bx--col">
               <Information20 />
             </span>
+            <OverflowMenuVertical20 className="float__right" />
+            <Share20 className="float__right" />
+            <Edit20 className="float__right" />
+            <Star20 className="float__right" />
           </h4>
-          <div>
-          <Star20 />
-          <Edit20 />
-          <Share20 />
-          <OverflowMenuVertical20 />
-        </div>
-        </div>
-         
         </section>
       </div>
-      {/* ROW 2 */}
-      <div className="bx--row">
-      <section className="bx--offset-md-2 landing-page__r2">
-        <SimpleBarChart data={mockData} options={options}></SimpleBarChart>
-      </section>
       </div>
-
-      {/* ROW 3 */}
+       <div className="bx--grid">
 
       <div className="bx--row">
-      <section className="bx--offset-md-2 landing-page__r3">
-        <DataTable
-          rows={mockData}
-          headers={headers}
-          isSortable
-          render={({ rows, headers, getHeaderProps }) => (
-            <TableContainer
-              title="2021 sales"
-              description="sales/month">
-              <TableToolbar>
-                <TableToolbarContent>
-                  <TableToolbarAction onClick={handleClick}>
-                    <Search20 />
-                  </TableToolbarAction>
-                  <TableToolbarAction onClick={handleClick}>
-                    <Edit20 />
-                  </TableToolbarAction>
-                  <TableToolbarAction onClick={handleClick}>
-                    <Settings20 />
-                  </TableToolbarAction>
-                </TableToolbarContent>
-              </TableToolbar>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    {headers.map((header) => (
-                      <TableHeader {...getHeaderProps({ header })}>
-                        {header.header}
-                      </TableHeader>
-                    ))}
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {rows.map((row) => (
-                    <TableRow key={row.id}>
-                      {row.cells.map((cell) => (
-                        <TableCell key={cell.id}>{cell.value}</TableCell>
+        <section className="landing-page__r2">
+          <SimpleBarChart data={mockData} options={options}></SimpleBarChart>
+        </section>
+      </div>
+  </div>
+    
+      <div className="bx--grid">
+      <div className="bx--row">
+        <section className="landing-page__r3">
+          <DataTable 
+            rows={mockData}
+            headers={headers}
+            isSortable
+            stickyHeader
+            render={({
+              rows,
+              headers,
+              getHeaderProps,
+              getRowProps,
+              getTableProps,
+            }) => (
+              <TableContainer  title="2021 sales" description="#sales/month">
+                <TableToolbar>
+                  <TableToolbarContent>
+                    <TableToolbarAction onClick={handleClick}>
+                      <Search16 />
+                    </TableToolbarAction>
+                    <TableToolbarAction onClick={handleClick}>
+                      <Edit16 />
+                    </TableToolbarAction>
+                    <TableToolbarAction onClick={handleClick}>
+                      <Settings16 />
+                    </TableToolbarAction>
+                  </TableToolbarContent>
+                </TableToolbar>
+                <Table {...getTableProps()}>
+                  <TableHead>
+                    <TableRow>
+                      {headers.map((header) => (
+                        <TableHeader {...getHeaderProps({ header })}>
+                          {header.header}
+                        </TableHeader>
                       ))}
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          )}
-        />
+                  </TableHead>
+                  <TableBody>
+                    {rows.map((row) => (
+                      <TableRow {...getRowProps({ row })}>
+                        {row.cells.map((cell) => (
+                          <TableCell key={cell.id}>{cell.value}</TableCell>
+                        ))}
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            )}
+          />
         </section>
-
       </div>
-
+    </div>
     </div>
   );
 };

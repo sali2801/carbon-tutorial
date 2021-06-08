@@ -4,11 +4,38 @@
 }
 
 a.bx--header__name {
-  // this is to align hear name (IBM maximo...) with the menu text
+  // this is to align header name (IBM maximo...) with the menu text
   padding-left: 5px;
 }
 
 .bx--side-nav__navigation {
-  // this is to color menu in balck color
+  // this is to color menu in black color
   background-color: $gray-100;
+}
+
+.bx--side-nav__icon:not(.bx--side-nav__submenu-chevron) {
+  // this is reduce space between icon and text in the left side nav bar
+  margin-right: 0.5rem;
+}
+
+.bx--side-nav__submenu {
+  // this is to control the space of a submenu (menu item with chevron): more importnta is to reduce left padding of chevron
+  padding: 1rem 0.5rem 1rem 1rem;
+}
+
+.bx--side-nav__link {
+  color: $gray-50;
+}
+
+a.bx--side-nav__link > .bx--side-nav__link-text,
+.bx--side-nav a.bx--header__menu-item .bx--text-truncate-end {
+  color: $gray-50;
+}
+
+.bx--side-nav__icon > svg {
+  fill: $gray-50;
+}
+
+.bx--side-nav__submenu-title {
+  color: #8d8d8d;
 }
