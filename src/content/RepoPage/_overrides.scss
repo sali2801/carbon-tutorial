@@ -1,7 +1,20 @@
-.bx--overflow-menu-options__option{
-    width: auto;
+.bx--overflow-menu-options__option {
+  width: auto;
 }
 
 .bx--data-table-header {
-    padding: 1rem 0 0 1rem;
+  padding: 1rem 0 0 1rem;
+}
+
+.bx--content {
+  padding: 1rem 1rem 0 1rem;
+}
+
+.bx--grid {
+  padding: 0;
+}
+
+.bx--cc--axes g.axis .axis-title {
+  font-weight: 800;
+  font-size: 14px;
 }
